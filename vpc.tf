@@ -1,7 +1,11 @@
 resource "aws_vpc" "environment-example" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.cidr-block
   enable_dns_hostnames = true
   enable_dns_support = true
+
+  tags = {
+    Name = "Prod-VPC"
+  }
 }
 
 resource "aws_subnet" "subnet1" {
